@@ -21,4 +21,22 @@
             android:textSize="10sp"
             android:text="goto Background sample"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_aa_ui_thread_sample_activity_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="goto \@UiThread sample"/>
+
+        <Button
+            android:id="@+id/btn_ui_thread_sample_activity_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="goto UiThread sample"/>
+    </LinearLayout>
 </LinearLayout>

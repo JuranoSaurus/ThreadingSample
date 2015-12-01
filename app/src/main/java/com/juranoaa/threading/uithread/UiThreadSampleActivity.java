@@ -1,17 +1,18 @@
-package com.juranoaa.threading.background;
+package com.juranoaa.threading.uithread;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.juranoaa.threading.R;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class BackgroundSampleActivity extends Activity {
+public class UiThreadSampleActivity extends Activity {
 
     private static int count = 0;
     private static final String TASK_ID = "task_id";
@@ -21,6 +22,7 @@ public class BackgroundSampleActivity extends Activity {
     private Map<String, Thread> threadPool = null;
 
     private Button btnStopTask = null;
+    private TextView textView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class BackgroundSampleActivity extends Activity {
                 btnStopTaskClicked();
             }
         });
+        textView = (TextView) findViewById(R.id.textView);
 
         threadPool = new HashMap<>();
         thread = new Thread(new MyThreadTask());
@@ -50,7 +53,12 @@ public class BackgroundSampleActivity extends Activity {
             try {
                 count++;
                 Log.d("TAG", "count: " + count);
-                //textView.setText("count: " + count); //UiThread가 아니므로 본 구문 실행불가!
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        textView.setText("count: " + count);
+                    }
+                });
 
                 Thread.sleep(500);
             } catch (InterruptedException e) {

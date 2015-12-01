@@ -1,24 +1,26 @@
-package com.juranoaa.threading.background;
+package com.juranoaa.threading.uithread;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.juranoaa.threading.R;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.api.BackgroundExecutor;
 
-@EActivity(R.layout.activity_background_sample)
-public class AABackgroundSampleActivity extends Activity {
+@EActivity(R.layout.activity_ui_thread_sample)
+public class AAUiThreadSampleActivity extends Activity {
 
     private static int count = 0;
     private static final String TASK_ID = "task_id";
+
+    @ViewById
+    TextView textView;
 
     @Override
     protected void onStart() {
@@ -35,7 +37,8 @@ public class AABackgroundSampleActivity extends Activity {
             try {
                 count++;
                 Log.d("TAG", "count: " + count);
-                //textView.setText("count: " + count); //UiThread가 아니므로 본 구문 실행불가!
+
+                uiTask();
 
                 Thread.sleep(500);
             }
@@ -44,6 +47,11 @@ public class AABackgroundSampleActivity extends Activity {
                 loopFlag = false; //탈출
             }
         }
+    }
+
+    @UiThread
+    void uiTask() {
+        textView.setText("count: " + count);
     }
 
     @Click

@@ -23,6 +23,14 @@
             android:name=".background.BackgroundSampleActivity"
             android:label="BackgroundSampleActivity">
         </activity>
+        <activity
+            android:name=".uithread.AAUiThreadSampleActivity_"
+            android:label="AAUiThreadSampleActivity">
+        </activity>
+        <activity
+            android:name=".uithread.UiThreadSampleActivity"
+            android:label="UiThreadSampleActivity">
+        </activity>
     </application>
 
 </manifest>
