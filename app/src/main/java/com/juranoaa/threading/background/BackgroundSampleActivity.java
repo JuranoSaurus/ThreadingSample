@@ -5,18 +5,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.juranoaa.threading.R;
 
-import org.androidannotations.annotations.Background;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
-import org.androidannotations.api.BackgroundExecutor;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class BackgroundSampleActivity extends Activity {
