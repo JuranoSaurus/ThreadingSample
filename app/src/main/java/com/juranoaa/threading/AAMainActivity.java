@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 
 import com.juranoaa.threading.background.AABackgroundSampleActivity_;
+import com.juranoaa.threading.background.BackgroundSampleActivity;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
@@ -20,9 +21,8 @@ public class AAMainActivity extends Activity {
 
     @Click
     void btnBackgroundSampleActivityCallClicked() {
-//        intent = new Intent(this, BackgroundSampleActivity.class);
-//        startActivity(intent);
+        intent = new Intent(this, BackgroundSampleActivity.class);
+        startActivity(intent);
     }
-
 
 }
