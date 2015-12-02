@@ -1,17 +1,13 @@
 package com.juranoaa.threading.background;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.juranoaa.threading.R;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
 import org.androidannotations.api.BackgroundExecutor;
 
 @EActivity(R.layout.activity_background_sample)
